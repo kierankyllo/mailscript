@@ -10,16 +10,17 @@ csv_filename = "dummy.csv"
 text_body_filename = "textbody.txt"
 html_body_filename = "htmlbody.txt"
 sender = "Do Not Reply <donotreply@domain.ca>"
+subject = "Your Subject Line"
 smtp_hostname = "smtp.domain.ca"
 smtp_port = 2525
 smpt_username = "USERNAME"
 smtp_password = "PASSWORD"
 
-#define a deliver_message function to create a well formed multipart MIMEText object 
-def deliver_message(sender, receiver, text, html):
+#define a deliver_message function to create and deliver a well formed multipart MIMEText object 
+def deliver_message(server, sender, receiver, subject, text, html):
     #setup message and header
     message = MIMEMultipart('alternative')  
-    message['Subject'] = "Your CSSS Membership"
+    message['Subject'] = subject
     message['From'] = sender
     message['To'] = receiver
     message['Message-id'] = email.utils.make_msgid()
@@ -56,7 +57,7 @@ for row in datareader:
     html = open(html_body_filename, 'r').read().format(first_name)
 
     #pass values to deliver_message function
-    deliver_message(sender, receiver, text, html)
+    deliver_message(server, sender, receiver, subject, text, html)
     
     #wait a bit
     time.sleep(3)
