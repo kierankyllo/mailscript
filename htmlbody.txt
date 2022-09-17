@@ -1,0 +1,9 @@
+<html>
+<head></head>
+<body>
+    <p><br>
+    This is some test HTML with templating for {}<br>
+    <a href="http://www.python.org">This is a test link</a>
+    </p>
+</body>
+</html>
