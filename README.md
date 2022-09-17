@@ -8,6 +8,8 @@ Currently it has a sleep of three seconds after each message, which can be remov
 
 The CSV must be well formed and must contain data for columns 0-3
 
+Script header needs to be edited for specific use case
+
 #### Requires:
 
 Python3  
